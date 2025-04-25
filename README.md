@@ -35,7 +35,8 @@ sudo systemctl status elasticsearch.service
 ```
 curl -X GET 'localhost:9200/_cluster/health?pretty'
 ```
-[Результат запроса](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-1.JPG)
+Результат запроса.
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-1.JPG)
 
 Если получаете ответ «curl: (52) Empty reply from server», замените значение true на false.  
 sudo nano  /etc/elasticsearch/elasticsearch.yml
@@ -53,10 +54,13 @@ sudo systemctl restart elasticsearch.service
 ## Решение 2. Kibana
 
 Установка Kibana.  
+```
 sudo apt install ./kibana-8.12.2-amd64.deb
-
+```
 Настройка.  
+```
 sudo nano  /etc/kibana/kibana.yml
+```
 ```
 # =================== System: Kibana Server ===================
 # Kibana is served by a back end server. This setting specifies the port to use.
@@ -78,17 +82,17 @@ sudo systemctl enable kibana.service
 sudo systemctl start kibana.service  
 sudo systemctl status kibana.service  
 ```
-Подлючение.  
+Подключение.  
 ```
 http://localhost:5601/app/dev_tools#/console
 ```
-[](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-2-1.JPG) 
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-2-1.JPG) 
 
-Выполнение запроса
+Выполнение запроса.
 ```
 GET /_cluster/health?pretty
 ```
-[](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-2-2.JPG)
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-2-2.JPG)
 
 ## Задание 3. Logstash
 
@@ -98,7 +102,7 @@ GET /_cluster/health?pretty
 
 ## Решение 3. Logstash
 
-Установка ngnx.  
+Установка nginx.  
 ```
 sudo apt install nginx
 ```
@@ -132,7 +136,7 @@ output {
   }
 }
 ```
-Запуск службу logstash.  
+Запуск службы logstash.  
 ```
 sudo systemctl daemon-reload  
 sudo systemctl enable logstash.service   
@@ -140,17 +144,17 @@ sudo systemctl start logstash.service
 sudo systemctl status logstash.service
 ```
 Создать данные для просмотра в kibana.  
-Маршрут: Management > stack management	> kibana > data view > Create data view
+Маршрут: Management > stack management	> kibana > data view > Create data view!
 
-[](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-3-0.PNG)
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-3-0.PNG)
 
-[](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-3-1.PNG)
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-3-1.PNG)
 
-[](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-3-2.PNG)
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-3-2.PNG)
 
-[](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-3-3.PNG)
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-3-3.PNG)
 
-[](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-3-4.PNG)
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-3-4.PNG)
 
 ## Задание 4. Filebeat.
 
@@ -261,15 +265,15 @@ sudo netstat -tulpn | grep 5044
 
 Смотрим, что получает kibana.
 
-[](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-4-1.PNG)
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-4-1.PNG)
 
-[](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-4-2.PNG)
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-4-2.PNG)
 
-[](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-4-3.PNG)
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-4-3.PNG)
 
-[](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-4-4.PNG)
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-4-4.PNG)
 
-[](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-4-5.PNG)
+![](https://github.com/eskin-igor/netology_11-3/blob/main/11-3/11-3-4-5.PNG)
 
 ### Для отладки удобно использовать следующие журналы.
 
